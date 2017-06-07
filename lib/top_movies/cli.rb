@@ -14,7 +14,7 @@ class TopMovies::CLI
     2. 100%- Citizen Kane - 75
     3. 100% - The Third Man - 77
     DOC
-    @movies = TopMovies::Movie.all 
+    @movies = TopMovies::Movie.all
   end
 
   def menu
@@ -25,7 +25,7 @@ class TopMovies::CLI
       if input.to_i > 0
         puts @movies [input.to_i]-1
       elsif input == list_movies
-        list_movies
+        
       when "1"
         puts "Plot of movie 1"
       when "2"
