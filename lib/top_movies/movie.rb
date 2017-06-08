@@ -26,7 +26,12 @@ class TopMovies::Movie
   def self.scrape_top_movies
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
     binding.pry
+    #parse into rows to get rating, title, number of reviews
+    title = doc.css(".unstyled.articleLink").first.text
+    position= doc.css(".bold").text
+    rating = doc.css("span.tMeterScore").first.text
   end
+end
 
 
 end
