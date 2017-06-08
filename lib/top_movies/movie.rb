@@ -1,8 +1,8 @@
 class TopMovies::Movie
-  attr_accessor :name, :rating, :reviews, :url
+  attr_accessor :title, :rating, :reviews, :url
 
-  def intialize(name, url)
-    @name= name
+  def intialize(title, url)
+    @title= title
     @url- url
   end
 
@@ -23,7 +23,7 @@ class TopMovies::Movie
     movies
   end
 
-  def self.scrape_movie_page
+  def self.scrape_top_movies
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
     binding.pry
   end
