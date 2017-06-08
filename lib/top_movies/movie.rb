@@ -27,11 +27,13 @@ class TopMovies::Movie
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
     binding.pry
     #parse into rows to get rating, title, number of reviews
-    title = doc.css(".unstyled.articleLink").first.text
-    position= doc.css(".bold").text
-    rating = doc.css("span.tMeterScore").first.text
+    title = doc.css(".unstyled.articleLink").first.text #"learn more"
+    position= doc.css(".bold").first.text #fresh
+    rating = doc.css("span.tMeterScore").first.text # "81%"
+    url= doc.cass("a.unstyled.articleLink").first.attr("href") # "/href/"
   end
-end
+
+
 
 
 end
