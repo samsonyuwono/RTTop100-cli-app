@@ -1,25 +1,32 @@
 class TopMovies::Movie
   attr_accessor :name, :rating, :reviews, :url
 
-  def self.all
-    # Scrape RT and return movie stats based on data
-    TopMovies::Movie.new("https://www.rottentomatoes.com/top/bestofrt")
-    self.scrape_movies
-    # movie_1 = self.new
-    # movie_1.name = "Wizard of Oz"
-    # movie_1.rating = "99%"
-    # movie_1.reviews = "109"
-    # movie_1.url = "https://www.rottentomatoes.com/m/the_wizard_of_oz_1939"
-    #
-    # movie_2 = self.new
-    # movie_2.name = "Citizen Kane"
-    # movie_2.rating = "100%"
-    # movie_2.reviews = "77"
-    # movie_2.url = "https://www.rottentomatoes.com/m/citizen_kane"
-    #
-    # [movie_1, movie_2]
+  def intialize(name, url)
+    @name= name
+    @url- url
   end
 
-  def self.scrape_movies 
+  def self.all
+    # Scrape RT's best 100 and return movie stats on input number out of 100
+    self.scrape_movies
+  end
+
+  def self.scrape_movies
+    movies = []
+
+    movies << self.scrape_movie
+
+    # Go to RT's top 100 list
+    # extract properties of each movie
+    # instantiate movie
+    # everytime I get a movie push it into array
+    movies
+  end
+
+  def self.scrape_movie_page
+    doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
+    binding.pry
+  end
+
 
 end
