@@ -25,15 +25,24 @@ class TopMovies::Movie
 
   def self.scrape_top_movies
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
-    binding.pry
+      doc.css('.table tr').each do |row|
+      binding.pry
+      title= row.css(".articleLink").text.strip
+      rating= row.css(".tMeterScore").text.gsub("\u00A0", " ")
     #parse into rows to get rating, title, number of reviews
-    title = doc.css(".unstyled.articleLink").first.text #"learn more"
-    position= doc.css(".bold").first.text #fresh
-    rating = doc.css("span.tMeterScore").first.text # "81%"
-    url= doc.cass("a.unstyled.articleLink").first.attr("href") # "/href/"
+    # title = row.css(".unstyled.articleLink").first.text #"learn more"
+    # position= row.css(".bold").first.text #fresh
+    # rating = row.css("span.tMeterScore").first.text # "81%"
+    # url= row.css("a.unstyled.articleLink").first.attr("href") # "/about/"
   end
+end
 
 
 
 
 end
+
+# title, number, year all = doc.css("h3.lister-item").first.text.split
+# number =  all[0]
+# title = all[1]
+# year = all[2] or doc.css(".text-muted").first.text
