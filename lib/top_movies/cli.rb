@@ -8,8 +8,8 @@ class TopMovies::CLI
 
   def list_movies
     puts "Welcome to Rottentomatoes Top 100 Highest Ranked Movies:"
-    TopMovies:Movie.all.each.with_index do |movie, i|
-      puts "#{i+1}. #{movie.name}"
+    TopMovies::Movie.all.each.with_index do |movie, i|
+      puts "#{movie.ranking}. #{movie.rating} - #{movie.name}"
   end
 end
 
@@ -22,11 +22,11 @@ end
         if input == "list"
           list_movies
         elsif input.to_i != (1..100)
-        movie = NowPlaying::Movie.find_by_name(input)
+        movie = TopMovies::Movie.find_by_title(input)
         print_movie(movie)
         puts "#{movie.rating} #{movie.title} - #{movie.reviews}"
       elsif input.to_i == (1..100)
-        movie = NowPlaying::Movie.find_by_number(input)
+        movie = TopMovies::Movie.find_by_number(input)
           print_movie(movie)
           puts "#{movie.rating} #{movie.title} - #{movie.reviews}"
       else

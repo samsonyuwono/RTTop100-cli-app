@@ -1,5 +1,5 @@
 class TopMovies::Movie
-  attr_accessor :title, :rating, :reviews, :ranking, :year
+  attr_accessor :rating, :reviews, :ranking, :year
 
   @@all = []
 
@@ -11,23 +11,21 @@ class TopMovies::Movie
     @@all
   end
 
-  def self.find_by_title(title)
-    self.all.detect do |name|
-      name == movie.title.strip
-    end
+  def title
+    @title
   end
 
-  def self.find_by_ranking(ranking)
-    self.all.detect do |number|
-      number == movie.ranking.strip
+
+  def self.find_by_title(title) #matching movie title
+    self.all.find {|name| title == name} #return matching movie title
+    binding.pry
     end
-  end
-  #
-  #   # Go to RT's top 100 list
-  #   # extract properties of each movie
-  #   # instantiate movie
-  #   # everytime I get a movie push it into array
-  #   # movies
+
+
+
+  def self.find_by_ranking(ranking) #return movie related to rank
+    self.all.find{|number| ranking == number}
+    end
 
 
   def self.scrape_top_movies
@@ -45,7 +43,7 @@ class TopMovies::Movie
         end
 
       end
-      binding.pry
+
     end
 
 
