@@ -3,7 +3,7 @@ class TopMovies::Movie
 
   def intialize(title, url)
     @title= title
-    @url- url
+    @url= url
   end
 
   def self.all
@@ -27,16 +27,15 @@ class TopMovies::Movie
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
       doc.css('.table tr').each do |row|
       binding.pry
-      title= row.css(".articleLink").text.strip
-      ranking= row.css(".bold").text.gsub(".","")
-      year =
-      rating= row.css(".tMeterScore").text.gsub("\u00A0", " ")
-      number_of_reviews= row.css(".hidden-xs").text
-    #parse into rows to get rating, title, number of reviews
-    # position= row.css(".bold").first.text #fresh
-    # url= row.css("a.unstyled.articleLink").first.attr("href") # "/about/"
-  end
-end
+      movie.title= row.css(".articleLink").text.strip
+      movie.ranking= row.css(".bold").text.gsub(".","")
+      movie.year= row.css(".articleLink").text.strip.scan(/\((\w+)/).flatten.join
+      movie.rating= row.css(".tMeterScore").text.gsub("\u00A0", " ")
+      movie.reviews= row.css(".hidden-xs").text
+      url=
+      end
+    end
+
 
 
 

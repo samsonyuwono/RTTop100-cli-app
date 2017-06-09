@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require "bundler/setup"
 require "top_movies"
-require "open uri"
+
 
 TopMovies::CLI.new.call
