@@ -11,14 +11,13 @@ class TopMovies::CLI
     TopMovies:Movie.all.each.with_index do |movie, i|
       puts "#{i+1}. #{movie.name}"
   end
-  puts ""
 end
 
   def start
     list_movies
     input = nil
       while input != "exit"
-        puts "Please enter a movie or Enter a number between 1 and 100)"
+        puts "Please enter a movie or Enter a number between 1 and 100"
         input = gets.strip
         if input == "list"
           list_movies
@@ -30,9 +29,8 @@ end
         movie = NowPlaying::Movie.find_by_number(input)
           print_movie(movie)
           puts "#{movie.rating} #{movie.title} - #{movie.reviews}"
-
       else
-        "Not sure what you want. Type list or exit"
+        puts "We can't find that. Please type list or exit"
       end
     end
   end
