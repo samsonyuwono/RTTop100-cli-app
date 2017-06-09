@@ -13,22 +13,26 @@ class TopMovies::CLI
   end
 end
 
+  def print_movie(movie)
+    puts "#{movie.title} - #{movie.year} - #{movie.rating} - #{movie.reviews}"
+  end
+
   def start
     list_movies
     input = nil
       while input != "exit"
         puts "Please enter a movie or Enter a number between 1 and 100"
         input = gets.strip
-        if input == "list"
+        if input.to_s == "list"
           list_movies
         elsif input.to_i != (1..100)
-        movie = TopMovies::Movie.find_by_title(input)
+        if movie = TopMovies::Movie.find_by_title(input)
         print_movie(movie)
-        puts "#{movie.rating} #{movie.title} - #{movie.reviews}"
-      elsif input.to_i == (1..100)
-        movie = TopMovies::Movie.find_by_number(input)
+      end
+      elsif input.to_s == (1..100)
+        if movie = TopMovies::Movie.find_by_number(input)
           print_movie(movie)
-          puts "#{movie.rating} #{movie.title} - #{movie.reviews}"
+        end
       else
         puts "We can't find that. Please type list or exit"
       end

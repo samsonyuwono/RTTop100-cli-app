@@ -17,8 +17,7 @@ class TopMovies::Movie
 
 
   def self.find_by_title(title) #matching movie title
-    self.all.find {|name| title == name} #return matching movie title
-    binding.pry
+    self.all.find {|name| name == title} #return matching movie title
     end
 
 
