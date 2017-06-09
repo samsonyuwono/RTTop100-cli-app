@@ -1,13 +1,9 @@
 class TopMovies::Movie
   attr_accessor :title, :rating, :reviews, :ranking, :year, :url
 
-  def intialize(title, url)
-    @title= title
-    @url= url
-  end
 
   def self.all
-  #   # Scrape RT's best 100 and return movie stats on input number out of 100
+    @@all = top_movie_list
   end
   #
   #
@@ -36,8 +32,7 @@ class TopMovies::Movie
       end
     end
 
-    def self.scrape_movie_page
-    end
+
 
 
 

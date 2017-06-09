@@ -2,33 +2,42 @@
 class TopMovies::CLI
 
   def call
-    list_movies
-    menu
+    start
     goodbye
   end
 
   def list_movies
     puts "Welcome to Rottentomatoes Top 100 Highest Ranked Movies:"
-    puts "Please type in a number between 1 and 100"
+    TopMovies:Movie.all.each.with_index do |movie, i|
+      puts "#{i+1}. #{movie.name}"
+  end
+  puts ""
 end
 
-  def menu
+  def start
+    list_movies
     input = nil
       while input != "exit"
-        puts "Enter the movie (or the number) you would like to learn more about. Type in list to see the list of moves again or type exit to exit:"
+        puts "Please enter a movie or Enter a number between 1 and 100)"
         input = gets.strip
-      if input.to_i (1..100)
-        the_movie = @movies [input.to_i-1]
-        puts "#{the_movie.rating} #{the_movie.name} - #{the_movie.reviews}"
-      elsif input == "list"
+        if input == "list"
           list_movies
+        elsif input.to_i != (1..100)
+        movie = NowPlaying::Movie.find_by_name(input)
+        print_movie(movie)
+        puts "#{movie.rating} #{movie.title} - #{movie.reviews}"
+      elsif input.to_i == (1..100)
+        movie = NowPlaying::Movie.find_by_number(input)
+          print_movie(movie)
+          puts "#{movie.rating} #{movie.title} - #{movie.reviews}"
 
       else
-        "Not sure what you want. type list or exit"
+        "Not sure what you want. Type list or exit"
       end
     end
   end
 end
+
 def goodbye
   puts "Thanks for checking in. I hope you picked a movie that you will like!"
 end
