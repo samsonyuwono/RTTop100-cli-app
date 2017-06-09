@@ -8,20 +8,16 @@ class TopMovies::CLI
   end
 
   def list_movies
-    puts "Rottentomatoes top movies:"
-    @movies = TopMovies::Movie.all
-    @movies.each.with_index do |movie, i|
-      puts "#{i+1}. #{movie.rating} #{movie.name} - #{movie.reviews}"
-  end
+    puts "Welcome to Rottentomatoes Top 100 Highest Ranked Movies:"
+    puts "Please type in a number between 1 and 100"
 end
 
   def menu
     input = nil
       while input != "exit"
         puts "Enter the movie (or the number) you would like to learn more about. Type in list to see the list of moves again or type exit to exit:"
-        input = gets.strip.downcase
-
-      if input.to_i > 0
+        input = gets.strip
+      if input.to_i (1..100)
         the_movie = @movies [input.to_i-1]
         puts "#{the_movie.rating} #{the_movie.name} - #{the_movie.reviews}"
       elsif input == "list"
