@@ -2,15 +2,16 @@
 class TopMovies::CLI
 
   def call
+    puts "Welcome to Rottentomatoes's Top 100 Highest Ranked Movies:"
+    TopMovies::Movie.scrape_top_movies
     list_movies
     start
     goodbye
   end
 
   def list_movies
-    puts "Welcome to Rottentomatoes Top 100 Highest Ranked Movies:"
-    TopMovies::Movie.all.each.with_index do |movie, i|
-      puts "#{i+1}. #{movie.name}"
+    TopMovies::Movie.all.each do |movie|
+      puts "#{movie.ranking}. #{movie.rating} - #{movie.title} - #{movie.year} - #{movie.reviews}" 
   end
 end
 
