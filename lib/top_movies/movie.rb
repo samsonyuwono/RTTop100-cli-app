@@ -12,7 +12,6 @@ class TopMovies::Movie
   end
 
 
-
     def self.find_by_title(title) #matching movie title
       self.all.detect {|name| name.title == title} #return matching movie title
     end
@@ -22,7 +21,7 @@ class TopMovies::Movie
     end
 
     def self.find_by_year(year) #return movie title related to year
-    self.all.find {|y| y.year == year}
+    self.all.detect {|y| y.year == year}
   end
 
 

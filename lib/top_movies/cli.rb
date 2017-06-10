@@ -24,6 +24,13 @@ class TopMovies::CLI
     puts "--------------------------------------------------------------------"
   end
 
+  def movie_year(year)
+    TopMovies::Movie.all.each do |movie|
+
+      puts "#{movie.ranking}. #{movie.rating} - #{movie.title} - #{movie.year} - #{movie.reviews} reviews"
+  end
+end
+
   def start
     input = nil
       while input != "exit"

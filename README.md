@@ -1,6 +1,6 @@
-TopMovies::Movie::CLI::GEM
+# RTTop100-cli-app
 
-# TopMovies
+# TopMovies::Movie::CLI::GEM
 
 Welcome to Rottentomatoes's list of highest ranked movies by Tomato Meter rating. Here you will be able to search the list by ranking, title, and highest ranked movie by year.
 
@@ -27,8 +27,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/'samso
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-# RTTop100-cli-app
-# RTTop100-cli-app
-# RTTop100-cli-app
-# RTTop100-cli-app
