@@ -11,7 +11,8 @@ class TopMovies::CLI
 
   def list_movies
     TopMovies::Movie.all.each do |movie|
-      puts "#{movie.ranking}. #{movie.rating} - #{movie.title} - #{movie.year} - #{movie.reviews}"
+
+      puts "#{movie.ranking}. #{movie.rating} - #{movie.title} - #{movie.year} - #{movie.reviews} reviews"
     end
   end
 
@@ -26,7 +27,10 @@ class TopMovies::CLI
   def start
     input = nil
       while input != "exit"
-        puts "Please enter a movie name or a number between 1 and 100. (exit to quit program. list to go back to menu)"
+        puts ""
+        puts "Please enter a movie title, a number between 1 and 100. Enter a year to see the highest ranked movie for a given year."
+        puts ""
+        puts "Type in list to see RT's top 100 list again. Type in exit to quit the program"
         input = gets.strip
         if input.to_s == "list"
           list_movies
@@ -41,7 +45,7 @@ class TopMovies::CLI
         elsif input.to_s != (1..100)
           if movie = TopMovies::Movie.find_by_title(input)
           print_movie(movie)
-        end
+          end
         end
       end
     end

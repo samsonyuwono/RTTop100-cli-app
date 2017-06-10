@@ -21,9 +21,9 @@ class TopMovies::Movie
       self.all.detect{|number| number.ranking == ranking}
     end
 
-    def self.find_by_year(year) #return movie title related to ranking
-      self.all.detect {|y| y.year == year}
-    end
+    def self.find_by_year(year) #return movie title related to year
+    self.all.find {|y| y.year == year}
+  end
 
 
 
