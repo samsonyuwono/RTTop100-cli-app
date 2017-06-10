@@ -1,5 +1,5 @@
 class TopMovies::Movie
-  attr_accessor :rating, :reviews, :ranking, :year
+  attr_accessor :title, :rating, :reviews, :ranking, :year
 
   @@all = []
 
@@ -11,19 +11,16 @@ class TopMovies::Movie
     @@all
   end
 
-  def title
-    @title
-  end
 
 
   def self.find_by_title(title) #matching movie title
-    self.all.find {|name| name == title} #return matching movie title
+    self.all.detect {|name| name.title == title} #return matching movie title
     end
 
 
 
-  def self.find_by_ranking(ranking) #return movie related to rank
-    self.all.find{|number| ranking == number}
+  def self.find_by_ranking(ranking) #return movie title related to ranking
+    self.all.detect{|number| number.ranking == number} #puts movie.ranking = movie.name
     end
 
 
@@ -44,10 +41,6 @@ class TopMovies::Movie
       end
 
     end
-
-
-
-
 
 
 
