@@ -2,6 +2,5 @@
 
 Specs:
 - [x] Have a CLI for interfacing with the application
-- [ ] Pull data from an external source
+- [x] Pull data from an external source - scraped data from RT Top 100 Movie page
 - [ ] Implement both list and detail views
-
