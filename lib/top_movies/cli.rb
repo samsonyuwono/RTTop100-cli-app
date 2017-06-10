@@ -49,5 +49,9 @@ class TopMovies::CLI
 
 
   def goodbye
+    puts "---------------------------------------------------------------------"
+    puts "                                                                     "
     puts "Thanks for checking in. I hope you picked a movie that you will like!"
+    puts "                                                                     "
+    puts "---------------------------------------------------------------------"
   end

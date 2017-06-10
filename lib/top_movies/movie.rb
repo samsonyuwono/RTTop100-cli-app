@@ -13,17 +13,19 @@ class TopMovies::Movie
 
 
 
-  def self.find_by_title(title) #matching movie title
-    self.all.detect {|name| name.title == title} #return matching movie title
-  end
+    def self.find_by_title(title) #matching movie title
+      self.all.detect {|name| name.title == title} #return matching movie title
+    end
 
-  def self.find_by_ranking(ranking) #return movie title related to ranking
-    self.all.detect{|number| number.ranking == ranking}
-  end
+    def self.find_by_ranking(ranking) #return movie title related to ranking
+      self.all.detect{|number| number.ranking == ranking}
+    end
 
     def self.find_by_year(year) #return movie title related to ranking
-      self.all.detect{|y| y.year == year}
+      self.all.detect {|y| y.year == year}
     end
+
+
 
   def self.scrape_top_movies
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
