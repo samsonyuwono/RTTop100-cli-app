@@ -1,28 +1,17 @@
+TopMovies::Movie::CLI::GEM
+
 # TopMovies
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/top_movies`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Rottentomatoes's list of highest ranked movies by Tomato Meter rating. Here you will be able to search the list by ranking, title, and highest ranked movie by year.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+You can install this gem via gem install top_movies. The now-playing CLI will be installed and you can run top_movies to get a list of the higest rated movies on Rotten Tomatoes.
 
-```ruby
-gem 'top_movies'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install top_movies
 
 ## Usage
 
-TODO: Write usage instructions here
+Run: ./bin/top_movies after installing the gem.
 
 ## Development
 
