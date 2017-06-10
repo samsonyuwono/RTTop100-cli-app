@@ -53,6 +53,10 @@ end
           if movie = TopMovies::Movie.find_by_title(input)
           print_movie(movie)
           end
+        elsif input.to_i.between?(1900,2017)
+          if movie = TopMovies::Movie.find_by_year(input)
+            print_movie(movie)
+          end
         end
       end
     end
