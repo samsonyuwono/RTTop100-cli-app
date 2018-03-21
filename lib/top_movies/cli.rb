@@ -1,4 +1,3 @@
-#Our CLI controller
 class TopMovies::CLI
 
   def call
